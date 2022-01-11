@@ -1,24 +1,18 @@
 import React from 'react';
 
-const Grid = ({ config, data }) => (
-  <table>
+
+const Grid = ({ config, data }) => {
+  
+  return (<table>
     <thead>
     <tr>
-      <th>Col 1</th>
-      <th>Col 2</th>
-    </tr>
+   {config.map(obj =><th>{obj.title}</th>)}
+   </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>Data 1</td>
-      <td>Data 2</td>
-    </tr>
-    <tr>
-      <td>Data 1</td>
-      <td>Data 2</td>
-    </tr>
+   {data.map(obj =><tr>{config.map(mKey =><td>{ mKey.component?<mKey.component data={obj[mKey.field]} />:obj[mKey.field] }</td>)}</tr>)}
     </tbody>
-  </table>
-);
+   </table>)
+}
 
 export default Grid;
